@@ -1,0 +1,60 @@
+/*================================== Grid and General ==================================*/
+.footer {
+  background-color: white;
+  color: #4d4a49;
+  padding: 4em 0;
+  margin-top: 5em;
+}
+
+.footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2em;
+}
+
+.footer li {
+  list-style: none;
+}
+
+/*================================== Brand and Social ==================================*/
+.footer .brand {
+  align-content: space-between;
+  padding: 0 50px;
+}
+.footer .brand img {
+  width: 200px;
+  margin: 0;
+}
+
+.footer .brand-tagline {
+  font-size: 0.8em;
+}
+
+.footer .brand .social-icons a img {
+  width: 30px;
+  margin: 5px;
+}
+
+.footer .social-icons ul li {
+  max-width: 25px;
+  margin: 0.5em 1em;
+  display: inline-block;
+  width: 100%;
+}
+
+.footer .social-icons ul li:first-child {
+  margin-left: 0em;
+}
+/*================================== Links1 ==================================*/
+
+.footer .links1 nav ul li a,
+.footer .links2 nav ul li a {
+  color: #4d4a49;
+  line-height: 2em;
+  text-decoration: none;
+}
+
+.footer .links1 nav ul li a:hover,
+.footer .links2 nav ul li a:hover {
+  color: #ff1a52;
+}

@@ -1,0 +1,60 @@
+{
+  "advertisement": [
+    {
+      "name": "Jones",
+      "sale": true,
+      "price": 230.15,
+      "photo": "./images/thumbnails/bike.jpg",
+      "tags": ["lifestyle", "motor"]
+    },
+    {
+      "name": "iPhone 3GS",
+      "sale": false,
+      "price": 50.0,
+      "photo": "./images/thumbnails/iphone.png",
+      "tags": ["lifestyle", "mobile"]
+    },
+    {
+      "name": "Jones",
+      "sale": true,
+      "price": 230.15,
+      "photo": "./images/thumbnails/bike.jpg",
+      "tags": ["lifestyle", "motor"]
+    },
+    {
+      "name": "Tabla surf",
+      "sale": false,
+      "price": 25.0,
+      "photo": "./images/thumbnails/surf.jpg",
+      "tags": ["mobile"]
+    },
+    {
+      "name": "Jones",
+      "sale": true,
+      "price": 230.15,
+      "photo": "./images/thumbnails/bike.jpg",
+      "tags": ["lifestyle", "motor"]
+    },
+    {
+      "name": "iPhone 3GS",
+      "sale": false,
+      "price": 50.0,
+      "photo": "./images/thumbnails/iphone.png",
+      "tags": ["lifestyle", "mobile"]
+    },
+    {
+      "name": "Jones",
+      "sale": true,
+      "price": 230.15,
+      "photo": "./images/thumbnails/bike.jpg",
+      "tags": ["lifestyle", "motor"]
+    },
+    {
+      "name": "iPhone 3GS",
+      "sale": false,
+      "price": 50.0,
+      "photo": "./images/thumbnails/iphone.png",
+      "tags": ["lifestyle", "mobile"]
+    }
+  ]
+}

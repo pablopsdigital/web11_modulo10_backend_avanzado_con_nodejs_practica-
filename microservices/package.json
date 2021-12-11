@@ -1,0 +1,16 @@
+{
+  "name": "microservices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cote": "^1.0.3",
+    "jimp": "^0.16.1",
+    "sharp": "^0.29.3"
+  }
+}

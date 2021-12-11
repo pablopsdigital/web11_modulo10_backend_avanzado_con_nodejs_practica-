@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= __('Welcome to Nodepop')%>
+  </title>
+  <link rel="stylesheet" href="./stylesheets/reset.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <link rel="stylesheet" href="./stylesheets/navigation.css">
+  <link rel="stylesheet" href="./stylesheets/header.css">
+  <link rel="stylesheet" href="./stylesheets/main.css">
+  <link rel="stylesheet" href="./stylesheets/footer.css">
+</head>
+
+<body>
+
+  <!--Start Navigation-->
+  <nav>
+    <%- include('../includes/navigation'); %>
+  </nav>
+  <!--End Navigation-->
+
+  <!--Start Header-->
+  <header>
+    <%- include('../includes/header'); %>
+  </header>
+  <!--End Header-->
+
+  <!--Start main-->
+  <main class="container">
+
+    <!--Start Card Section-->
+    <section>
+      <% if(advertisementList.length> 0){ %>
+        <h2 class="title-list">
+          <%= __('New Products')%>
+        </h2>
+        <ul class="main-cards-list">
+
+          <!-- Advertisement list bucle -->
+          <% advertisementList.forEach(function(advertisement) { %>
+            <li class="card">
+              <a href="#" class="card-link" target="_blank">
+                <img src="<%=advertisement.photo%>" alt="<%=advertisement.photo%>">
+                <div class="card-content">
+
+                  <p class="card-price">
+                    <%= advertisement.price %><span> EUR</span>
+                  </p>
+                  <h2 class="card-title">
+                    <%= advertisement.name %>
+                  </h2>
+
+                  <div class="info-details">
+                    <p
+                      class="advertisement-type <%= advertisement.sale ? 'background-sale' : 'background-purchase' %>">
+                      <%= advertisement.sale ? __('Sale') : __('Purchase') %>
+                    </p>
+                    <p class="date">
+                      <%= __('Publication date')%>:
+                        <%= advertisement.createdAt.getDate()%>/
+                          <%= advertisement.createdAt.getMonth()%>/
+                            <%= advertisement.createdAt.getFullYear()%>
+                    </p>
+                  </div>
+                  <div class="tags-details">
+                    <!-- <%advertisement.tags[i];%> -->
+                    <% for (var i=0; i < advertisement.tags.length; i++) { %>
+                      <a href="<%= advertisement.tags[i] %>" class="tag" target="_blank">
+                        • <%= advertisement.tags[i] %>
+                      </a>
+                      <% } %>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <% }); %>
+        </ul>
+
+        <!-- No results -->
+        <% } else{ %>
+          <div class="no-results">
+            <p class="emogi">😥</pc>
+            <h3>
+              <%= __('No ads have been found!!')%>
+            </h3>
+            <p>
+              <%= __('Try changing your search filters')%>
+            </p>
+          </div>
+          <% } %>
+    </section>
+    <!--End Card Section-->
+
+
+  </main>
+  <!--End main-->
+
+
+
+  <!--Start footer-->
+  <footer class="footer">
+    <%- include('../includes/footer'); %>
+  </footer>
+  <!--End footer-->
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+/*================================== General Styles ==================================*/
+
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&family=Work+Sans:wght@300;400;500;600&display=swap");
+
+:root {
+  --hover: #537cec;
+  --background: #eceff1;
+  --gray: #8f8f8f;
+  --blue: #0071eb;
+  --green: #00eb7d;
+  --border-radius-05: 0.5em;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+/*================================== General Containers ==================================*/
+
+body {
+  min-height: 90vh;
+  background-color: var(--background);
+}
+
+.container {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}

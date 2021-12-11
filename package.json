@@ -1,0 +1,41 @@
+{
+  "name": "nodepop",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env DEBUG=nodepop:* nodemon",
+    "start": "node ./bin/www",
+    "test": "cross-env NODE_ENV=test jest integration --verbose --silent",
+    "test:coverage": "jest --coverage",
+    "test:watch:init": "jest integration --watch",
+    "test:int": "jest integration --detectOpenHandles",
+    "loadData": "node ./scripts/loadMockDataDB.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "~1.4.4",
+    "cote": "^1.0.3",
+    "cross-env": "^7.0.3",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-validator": "^6.13.0",
+    "http-errors": "^1.6.3",
+    "i18n": "^0.13.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.5",
+    "multer": "^1.4.4",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-node-express": "^1.2.3",
+    "swagger-ui-express": "^3.0.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.4.4",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.12",
+    "prettier": "2.4.0",
+    "supertest": "^6.1.6"
+  }
+}

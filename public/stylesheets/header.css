@@ -1,0 +1,14 @@
+header {
+  padding: 80px;
+  background-color: white;
+  text-align: center;
+}
+
+header h1 {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+header p {
+  color: rgba(000, 000, 000, 0.5);
+}

@@ -1,0 +1,308 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Nodepop",
+    "description": "Nodepop API Information",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "contact": {
+      "name": "Pablo Pérez",
+      "email": "pablopsdigital@gmail.com",
+      "url": "https://pablopsdigital.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Advertisements",
+      "description": "API for advertisements in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/advertisement": {
+      "parameters": [
+        {
+          "name": "name",
+          "in": "query",
+          "required": false,
+          "description": "Ability to search by words or letters in the name.",
+          "type": "string"
+        },
+        {
+          "name": "sale",
+          "in": "query",
+          "required": false,
+          "description": "Filter between ads for sale (true) and buy (false)",
+          "type": "string"
+        },
+        {
+          "name": "skip",
+          "in": "query",
+          "required": false,
+          "description": "To skip the start records.",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "description": "Limit the number of returned records.",
+          "type": "integer"
+        },
+        {
+          "name": "price",
+          "in": "query",
+          "required": false,
+          "description": "Limiting the price range there are different possibilities: \n10-50:  Price indluded between the two value\n10-: Price greater than value, excluding value\n-50: Price less than value, excluding value\n50: Price equal to value",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Advertisements"],
+        "summary": "Get all advertisements in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        }
+      }
+    },
+    "/advertisement/{advertisementId}": {
+      "parameters": [
+        {
+          "name": "advertisementId",
+          "in": "path",
+          "required": true,
+          "description": "ID of advertisement that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Advertisements"],
+        "summary": "Get advertisement with given ID",
+        "responses": {
+          "200": {
+            "description": "Advertisement is found",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        }
+      }
+    },
+    "/advertisement/tags/list": {
+      "get": {
+        "tags": ["Advertisements"],
+        "summary": "Get all tags in advertisements in system no repeat",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        }
+      }
+    },
+    "/advertisement/add": {
+      "post": {
+        "summary": "Create adveretisement",
+        "tags": ["Advertisements"],
+        "parameters": [
+          {
+            "name": "advertisement",
+            "in": "body",
+            "description": "Advertisement with values of create",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New advertisemente is created",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        }
+      }
+    },
+    "/advertisement/update": {
+      "put": {
+        "tags": ["Advertisements"],
+        "parameters": [
+          {
+            "name": "Advertisement",
+            "in": "body",
+            "description": "Update a advertisement with new values of properties. Is necesary include ID",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        ],
+        "summary": "Update one advertisement in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        }
+      }
+    },
+    "/advertisement/delete": {
+      "delete": {
+        "summary": "Delete advertisement with given ID",
+        "tags": ["Advertisements"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "Delete a advertisement with ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Advertisement is deleted",
+            "schema": {
+              "$ref": "#/definitions/Advertisement"
+            }
+          }
+        }
+      }
+    },
+    "/user/authenticate": {
+      "parameters": [
+        {
+          "name": "email",
+          "in": "body",
+          "required": true,
+          "description": "User email",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "in": "body",
+          "required": true,
+          "description": "User Password",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "tags": ["Users"],
+        "summary": "Authenticating a user in the system.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/authenticate": {
+      "parameters": [
+        {
+          "name": "email",
+          "in": "body",
+          "required": true,
+          "description": "User email",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "in": "body",
+          "required": true,
+          "description": "User Password",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "tags": ["Root"],
+        "summary": "Authenticating a user in the system.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Advertisement": {
+      "required": ["_id", "name", "sale", "price", "tags"],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "readOnly": true,
+          "uniqueItems": true,
+          "example": "614629809a7105580c81b249"
+        },
+        "name": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "Iphone X"
+        },
+        "sale": {
+          "type": "boolean",
+          "example": "true"
+        },
+        "price": {
+          "type": "number",
+          "example": "23.50"
+        },
+        "photo": {
+          "type": "string",
+          "example": "iphone.jpg"
+        },
+        "tags": {
+          "type": "string",
+          "enum": ["uncategorized", "work", "lifestyle", "motor", "mobile"],
+          "example": "work"
+        },
+        "createdAt": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "User": {
+      "required": ["_id", "email", "password"],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "readOnly": true,
+          "uniqueItems": true,
+          "example": "614629809a7105580c81b249"
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "user@example.com"
+        },
+        "password": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "1234"
+        }
+      }
+    }
+  }
+}

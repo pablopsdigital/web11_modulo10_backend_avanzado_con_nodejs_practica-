@@ -1,0 +1,55 @@
+<nav class="navigation">
+    <div class="navigation-content">
+
+        <div>
+            <a href="#" class="brand">
+                <img class="brand-img" src="./svg/brand.svg" alt="brand">
+            </a>
+        </div>
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="<% __('Search...')%>" name="search">
+                <button type="submit">
+                    <%= __('Submit')%>
+                </button>
+            </form>
+        </div>
+        <div class="col-language">
+            <% getLocales().forEach(locale=>{ %>
+                <a href="/change-locale/<%= locale %>">
+                    <%= locale%>
+                </a>
+                <% }) %>
+        </div>
+
+        <div class="col-buttons">
+            <ul class="navigation-list">
+
+                <li>
+                    <a href="#" class="pro">
+                        <img class="navigation-icon-svg" src="./svg/conversacion.svg">
+                        <%= __('Try being a')%> <span>PRO</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="navigation-icon-svg" src="./svg/shuttle.svg">
+                        <%= __('Message')%>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" class="login-button">
+                        <%= __('Register or login')%>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" class="load-product-button"><img
+                            class="navigation-icon-svg" src="./svg/add.svg">
+                        <%= __('Upload product')%>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
